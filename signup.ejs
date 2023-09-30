@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <style>/* styles.css */
+       body {
+        font-family: 'Times New Roman', Times, serif;
+        background-image: url("https://t4.ftcdn.net/jpg/04/60/71/01/360_F_460710131_YkD6NsivdyYsHupNvO3Y8MPEwxTAhORh.jpg");
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+        
+        .container {
+          background-color:rgb(228, 231, 236);
+          padding: 70px;
+          border-radius: 50px;
+          box-shadow: 0 2px 4px rgba(202, 32, 32, 0.1);
+          text-align: center;
+        }
+        
+        h1 {
+          color: #333;
+        }
+        
+        form {
+          margin-top: 20px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+        
+        label {
+          font-weight: bold;
+          margin-bottom: 5px;
+        }
+        
+        input {
+          width: 100%;
+          padding: 10px;
+          margin-bottom: 10px;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+        }
+        
+        button {
+          background-color: #007bff;
+          color: white;
+          border: none;
+          border-radius: 25px;
+          padding: 10px 20px;
+          cursor: pointer;
+        }
+        
+        button:hover {
+          background-color: #0056b3;
+        }
+        
+        a {
+          text-decoration: none;
+          color: #007bff;
+        }
+        
+        a:hover {
+          text-decoration: underline;
+        }
+        .raj{
+          background-color: #b816e45e;
+          border-radius: 50ch;
+        }
+        
+     
+
+
+        </style>
+    <title>Signup</title>
+</head>
+<body>
+  
+
+ 
+    <div class="container">
+        <div class="raj">
+          <h1>Signup</h1>
+          
+
+        </div>
+        <form action="/signupSubmit" method="POST">
+            <label for="Fullname">Full Name</label>
+            <input type="text" id="Fullname" name="Fullname" required>
+            
+            <label for="Email">Email</label>
+            <input type="email" id="Email" name="Email" required>
+            
+            <label for="Phoneno">Phone Number</label>
+            <input type="tel" id="Phoneno" name="Phoneno" required>
+            
+            <label for="Password">Password</label>
+            <input type="password" id="Password" name="Password" required>
+            
+            <button type="submit">Signup</button>
+        </form>
+        <p>Already have an account? <a href="/login">Login</a></p>
+        <% if (message) { %>
+          <p><%= message %></p>
+        <% } %>
+    </div>
+  
+</body>
+</html>

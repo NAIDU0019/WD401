@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <style>
+    /* Basic styling */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+    }
+  
+    /* Header styling */
+    h1 {
+      text-align: center;
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+      margin: 0;
+    }
+  
+    /* Container styling */
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(14, 216, 115, 0.1);
+      padding: 20px;
+    }
+  
+    /* Section titles */
+    h2 {
+      font-size: 24px;
+      margin-top: 20px;
+    }
+  
+    /* List styling */
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+  
+    li {
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-bottom: 10px;
+      padding: 10px;
+    }
+  
+    /* Weather data container */
+    .weather-data {
+      background-color: #f0e5e5;
+      padding: 15px;
+      border-radius: 5px;
+      margin-top: 20px;
+    }
+  
+    /* Form styling */
+    form {
+      margin-top: 20px;
+    }
+  
+    label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 5px;
+    }
+  
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+  
+    button[type="submit"] {
+      background-color: #6cce22;
+      color: #a71d1d;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  
+    button[type="submit"]:hover {
+      background-color: #555;
+    }
+  </style>
+  
+  
+</head>
+<body>
+  <h1>Dashboard</h1>
+
+  <!-- Display the search results (if any) -->
+  <h2>Search Results:</h2>
+  <ul>
+    <% searchResults.forEach(function(result) { %>
+      <li>
+        <strong>Name:</strong> <%= result.name %><br>
+        <strong>Country:</strong> <%= result.country %><br>
+        <strong>Region:</strong> <%= result.region %><br>
+        <strong>Population:</strong> <%= result.population %><br>
+        <hr>
+      </li>
+    <% }); %>
+  </ul>
+
+  <!-- Display the weather data (if available) -->
+  <% if (weatherData) { %>
+    <h2>Weather Data:</h2>
+    <p><strong>Location:</strong> <%= weatherData.location.name %>, <%= weatherData.location.country %></p>
+    <p><strong>Temperature:</strong> <%= weatherData.current.temp_c %>°C</p>
+    <p><strong>Condition:</strong> <%= weatherData.current.condition.text %></p>
+    <p><strong>Humidity:</strong> <%= weatherData.current.humidity %>%</p>
+    <!-- Add more weather data properties as needed -->
+  <% } else { %>
+    <p>No weather data available for the specified location.</p>
+  <% } %>
+
+  <!-- Form to input location -->
+  <h2>Input Location:</h2>
+  <form action="/dashboard" method="get">
+    <label for="location">Location:</label>
+    <input type="text" id="location" name="location" required>
+    <button type="submit">Submit</button>
+  </form>
+</body>
+</html>
